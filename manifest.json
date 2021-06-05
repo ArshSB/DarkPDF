@@ -1,0 +1,29 @@
+{
+  "manifest_version": 2,
+
+  "name": "DarkPDF",
+  "description": "Adds a simple, unofficial dark mode for PDF viewing in Google Chrome",
+  "version": "1.00",
+
+  "icons": {
+    "128": "/icons/document.png",
+    "32": "icons/clicking.png"
+  },
+
+  "browser_action": {
+    "default_icon": "/icons/document.png",
+    "default_popup": "/popup.html"
+  },
+
+  "background": {
+    "scripts": ["/scripts/background.js"],
+    "persistent": false
+  },
+
+  "permissions": [
+    "activeTab",
+    "storage",
+    "tabs",
+    "*://*/*"
+  ]
+}
