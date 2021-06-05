@@ -18,7 +18,7 @@ Here is a demo:
 
 ![Sample video](demo-files/sample-video-1.gif)
 
-**Note:** Although this extension is specifically for native PDF viewing in Chrome, it may also enable dark mode for other uses (websites like Stack Overflow for example). However, results are not guaranteed. Additonally, automatic dark mode only works for native Chrome PDF documents and may not work for embedded PDF files on a website.
+**Note:** Although this extension is specifically for native PDF viewing in Chrome, it may also enable dark mode for other uses (websites like Stack Overflow or Youtube for example). However, results are not guaranteed. Additonally, automatic dark mode only works for native Chrome PDF documents and may not work for embedded PDF files on a website.
 
 ## How to install
 
