@@ -22,9 +22,9 @@ Here is a demo:
 
 ## How to install
 
-I am currently awaiting approval from the Chrome Web Store to upload the extension there. 
+Simply install the extension via the Chrome Web Store [here](https://chrome.google.com/webstore/detail/darkpdf/cfemcmeknmapecneeeaajnbhhgfgkfhp)
 
-Until then, you can add the extension manually. Simply download this repository as a ZIP file, extract it to a folder and load it unpacked to your Chrome browser. 
+You can also add the extension manually. Download this repository as a ZIP file, extract it to a folder and load it unpacked to your Chrome browser. 
 
 Here are the [instructions](https://webkul.com/blog/how-to-install-the-unpacked-extension-in-chrome/) in details.
 
