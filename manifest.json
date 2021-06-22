@@ -24,6 +24,6 @@
     "activeTab",
     "storage",
     "tabs",
-    "*://*/*"
+    "<all_urls>"
   ]
 }
