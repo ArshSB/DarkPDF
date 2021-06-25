@@ -1,6 +1,6 @@
 // string array that holds the ID of all visited chrome tabs that have a PDF file open
 // will be later used to prevent dark mode from being applied multiple times to the same tab
-let tabs = [];
+tabs = [];
 
 // callback function pointer for events where a tab with a PDF file is activated
 callbackActivated = function (info) {
@@ -50,10 +50,12 @@ callbackUpdated = function (tabId, changeInfo, tab) {
 
     chrome.storage.sync.get(["checkbox-state"], (items) => {
 
-        // don't save the tab ID to tabs array when URL is updated so that if the user comes back to the same page
+        // don't check the tab ID to tabs array when URL is updated so that if the user comes back to the same page
         // it will apply dark mode again instead of only applying once at the start
         if (url === ".pdf" && items['checkbox-state'] == true) {
-
+            
+            tabs.push(tabId);
+            
             chrome.tabs.executeScript(tabId, {file: "scripts/toggle.js"});
 
             // set extension badge as a checkmark to signify dark mode was applied to the user
