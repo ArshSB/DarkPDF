@@ -10,9 +10,11 @@ The extension is very simple. Here is the interface (please excuse the design):
 
 ![Sample image - 1](demo-files/sample-img-1.png)
 
-Have the PDF open in an active tab on Chrome, then simply click the extension icon to turn the dark mode on or off
+Have the PDF open in an active tab on Chrome, then simply click the extension icon to turn the dark mode on or off.
 
 The extension also offers automatic dark mode. While the feature is on, anytime you visit a PDF during your web browsing, dark mode will automatically be applied without needing to click the extension icon for maximum convenience. Automatic preference will be synced to user's Google account if logged in, otherwise it will only be synced locally.
+
+To use this extension on local PDF files, you will have to give DarkPDF manual access to file URLs. Simply go to the Extensions tab on Chrome, click "Details" under DarkPDF, and turn on "Allow access to file URLs". 
 
 Here is a demo:
 
