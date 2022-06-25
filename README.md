@@ -20,8 +20,6 @@ Here is a demo:
 
 ![Sample video](demo-files/sample-video-1.gif)
 
-**Note:** Although this extension is specifically for native PDF viewing in Chrome, it may also enable dark mode for other uses (websites like Stack Overflow or Youtube for example). However, results are not guaranteed. Additonally, automatic dark mode only works for native Chrome PDF documents and may not work for embedded PDF files on a website.
-
 ## How to install
 
 Simply install the extension via the Chrome Web Store [here](https://chrome.google.com/webstore/detail/darkpdf/cfemcmeknmapecneeeaajnbhhgfgkfhp)
@@ -37,10 +35,10 @@ I hope this extension will be as useful to you as it has been to me. If you enco
 ## Built with
 
 * [Chrome Extensions API](https://developer.chrome.com/docs/extensions/reference/) - build your own Chrome extensions using their powerful library
-* Vanilla JavaScript - for working with the API
-* HTML / CSS - for extension interface
+* JavaScript - for working with the API
+* UIKit - for extension user interface
 
 ## Attributions
 
 * [Extension icon and interface image](https://iconscout.com) - free, high definition icons and images
-* [Fix for an extension bug](https://www.reddit.com/r/chrome_extensions/comments/no7igm/chrometabsonactivatedaddlistener_not_working/) - thanks to user/z0ccc_
+* [UIKit](https://getuikit.com/) - build good looking UI using their framework

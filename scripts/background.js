@@ -1,6 +1,39 @@
 // string array that holds the ID of all visited chrome tabs that have a PDF file open
 // will be later used to prevent dark mode from being applied multiple times to the same tab
-tabs = [];
+let tabs = [];
+
+// listens for keyboard shortcut (CTRL + X) to toggle dark mode on/off for PDFs only
+chrome.commands.onCommand.addListener((command) => {
+
+    if (command === 'run-dark-mode') {
+        
+        // get the current tab's id and apply the dark mode only if the file is PDF
+        chrome.tabs.query({currentWindow: true, active: true}, function (tabs) {
+
+            if (tabs[0].url.slice(-4) === '.pdf')
+                runScriptWithBadge(tabs[0].id);
+        });
+    }
+  });
+
+// applies dark mode to the given tab along with extension badge
+runScriptWithBadge = function (tabId) {
+
+    // mark the current tab as visited
+    tabs.push(tabId);
+
+    // inject the dark mode script to current tab
+    chrome.scripting.executeScript({target: {tabId: tabId}, files: ["scripts/toggle.js"]});
+
+    // set extension badge as a checkmark to signify dark mode was applied to the user
+    chrome.action.setBadgeText({text: '✓'});
+
+    // allow the extension badge to remain as a checkmark for 1 second before removing it
+    setTimeout(function () {
+        chrome.action.setBadgeText({text: ''});
+    }, 1250);
+
+};
 
 // callback function pointer for events where a tab with a PDF file is activated
 callbackActivated = function (info) {
@@ -17,27 +50,16 @@ callbackActivated = function (info) {
             if (url === ".pdf" && items['checkbox-state'] == true) {
 
                 // If the current activated tab has not yet been visited, apply the dark mode script and add the tab ID to tabs array
-                if (!tabs.includes(info.tabId)) {
+                if (!tabs.includes(info.tabId))
+                    runScriptWithBadge(info.tabId);
 
-                    tabs.push(info.tabId);
-                    chrome.tabs.executeScript(info.tabId, {file: "scripts/toggle.js"});
-
-                    // set extension badge as a checkmark to signify dark mode was applied to the user
-                    chrome.browserAction.setBadgeText({text: '✓'});
-
-                    // allow the extension badge to remain as a checkmark for 1 second before removing it
-                    setTimeout(function () {
-                        chrome.browserAction.setBadgeText({});
-                    }, 2500);
-
-                }
             }
         });
     });
 };
 
 // callback function pointer for events where an activated tab's URL is updated to a PDF file
-callbackUpdated = function (tabId, changeInfo, tab) {
+callbackUpdated = function (tabid, changeInfo, tab) {
 
     let url = changeInfo.url.slice(-4);
 
@@ -45,20 +67,9 @@ callbackUpdated = function (tabId, changeInfo, tab) {
 
         // don't check the tab ID in tabs array when URL is updated so that if the user comes back to the same page
         // it will apply dark mode again instead of only applying once at the start
-        if (url === ".pdf" && items['checkbox-state'] == true) {
-
-            tabs.push(tabId);
-
-            chrome.tabs.executeScript(tabId, {file: "scripts/toggle.js"});
-
-            // set extension badge as a checkmark to signify dark mode was applied to the user
-            chrome.browserAction.setBadgeText({ text: '✓'});
-
-            // allow the extension badge to remain as a checkmark for 1 second before removing it
-            setTimeout(function() {
-                chrome.browserAction.setBadgeText({});
-            }, 2500);
-        }
+        if (url === ".pdf" && items['checkbox-state'] == true)
+            runScriptWithBadge(tabid);
+        
     });
 };
 

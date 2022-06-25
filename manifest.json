@@ -1,29 +1,49 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
 
   "name": "DarkPDF",
-  "description": "Adds a simple, unofficial dark mode for PDF viewing in Google Chrome",
-  "version": "1.00",
+  "description": "Adds a simple dark mode functionality for PDF files in Google Chrome and Microsoft Edge",
+  "version": "1.40",
 
   "icons": {
-    "128": "/icons/document.png",
-    "32": "icons/clicking.png"
+    "128": "/icons/document.png"
   },
 
-  "browser_action": {
+  "action": {
     "default_icon": "/icons/document.png",
     "default_popup": "/popup.html"
   },
 
   "background": {
-    "scripts": ["/scripts/background.js"],
-    "persistent": true
+    "service_worker": "/scripts/background.js"
   },
 
   "permissions": [
     "activeTab",
     "storage",
     "tabs",
+    "scripting"
+  ],
+
+  "host_permissions": [
     "<all_urls>"
-  ]
+  ],
+
+  "commands": {
+    "run-dark-mode": {
+      "suggested_key": {
+        "default": "Alt+Shift+X",
+        "mac": "Command+Shift+X"
+      },
+      "description": "Apply dark mode to the current page"
+    },
+    "_execute_action": {
+      "suggested_key": {
+        "windows": "Ctrl+Shift+Y",
+        "mac": "Command+Shift+Y",
+        "chromeos": "Ctrl+Shift+U",
+        "linux": "Ctrl+Shift+J"
+      }
+    }
+  }
 }

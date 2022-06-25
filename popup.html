@@ -5,36 +5,48 @@
     <head>
 
         <meta charset="utf-8">
-        <title>Dark PDF</title>
+        <title>DarkPDF</title>
         <script src="scripts/popup.js"></script>
         <link rel="stylesheet" href="stylesheet/style.css">
+        <!-- UIkit CSS -->
+        <link rel="stylesheet" href="./uikit/css/uikit.min.css" />
+        <!-- UIkit JS -->
+        <script src="./uikit/js/uikit.min.js"></script>
+        <script src="./uikit/js/uikit-icons.min.js"></script>
 
     </head>
 
     <body>
+        
+        <div class="uk-text-center" uk-grid>
 
-        <h3 id="instruction"> <img class="instruction-img" src="icons/clicking.png">
-            Click extension icon to turn on/off dark mode
-            <img class="instruction-img" src="icons/clicking.png">
-        </h3>
+            <div class="uk-width-auto@m">
+                <div class="uk-card uk-card-secondary uk-card-body">
+                    <span uk-icon="icon: info; ratio: 1.2"></span><br><br>
+                        Click extension icon to turn on/off dark mode. You can also use <kbd style="background-color:#474747">Alt</kbd> / <kbd style="background-color:#474747">Command</kbd> + <kbd style="background-color:#474747">Shift</kbd> + <kbd style="background-color:#474747">X</kbd> as keyboard shortcuts
+                    <hr class="uk-divider-icon">
+                    <span uk-icon="icon: file-pdf; ratio: 1.2"></span><br></br>
+                        To use on local PDF files, simply go to the <b>Extensions</b> tab on Chrome, click <b>Details</b> under DarkPDF, and turn on <b>Allow access to file URLs</b>
+                    <hr class="uk-divider-icon">
+                    <span uk-icon="icon: cog; ratio: 1.2"></span><br></br>
+                        <label><input class="uk-checkbox" type="checkbox" id="auto-dark" unchecked> <b>Automatically turn on dark mode</b></label>
+                        <div class="uk-margin">
+                            <input class="uk-range" id="tint-slider" type="range" value="1" min="0" max="2" step="1">
+                            <label id="slider-lbl" for="tint-slider">
+                                Lighter<span uk-icon="icon: triangle-left; ratio: 1.0"></span><span uk-icon="icon:triangle-right; ratio: 1.0"></span>Darker
+                            </label>
+                        </div>
+                    <hr class="uk-divider-icon">
+                    <span uk-icon="icon: user; ratio: 1.2"></span><br></br>
+                        &lt; Made by <a style="text-decoration: none; color: green" href="https://github.com/ArshSB" target="_blank"> Arsh </a>&#47;&gt;
+                </div>
+            </div>
 
-        <input type="checkbox" id="auto-dark" name="auto-dark">
+            </div>
 
-        <label id="auto-dark-lbl" for="auto-dark" >
-            Automatically turn on dark mode for PDFs
-        </label>
 
-        <div class="instruction-local">
-            <p id="instruction-local-pdf">
-                Note: To use this extension on local PDF files, you will have to give DarkPDF manual access to file URLs. Simply go to the Extensions tab on Chrome, click "Details" under DarkPDF, and turn on "Allow access to file URLs".
-            </p>
         </div>
 
-        <p id="signature">
-            &lt; Made by
-            <a style="text-decoration: none; color: green" href="https://github.com/ArshSB" target="_blank"> Arsh </a>
-            &#47;&gt;
-        </p>
 
     </body>
 

@@ -1,40 +1,5 @@
 /* sets the height and width of the popup HTML when extension icon is clicked */
 html {
-    height: 140px;
-    width: 390px;
-}
-
-/* a dark mode utility without having a dark mode itself? blasphemous... */
-body {
-    background-color: black;
-}
-
-#instruction {
-    color: red;
-}
-
-.instruction-img {
-    vertical-align: middle;
-}
-
-#auto-dark {
-    margin-left: 40px;
-    margin-top: 12px;
-}
-
-#auto-dark-lbl {
-    font-size: 14px;
-    font-weight: bolder;
-    color: violet;
-    vertical-align: 2px;
-}
-
-#signature {
-    font-size: 9px;
-    font-weight: bold;
-    color: yellow;
-    text-align: center;
-    margin-top: 30px;
-    margin-bottom: 20px;
-    font: "Impact";
+    height: 400px;
+    width: 400px;
 }
