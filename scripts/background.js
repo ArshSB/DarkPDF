@@ -2,7 +2,7 @@
 // will be later used to prevent dark mode from being applied multiple times to the same tab
 let tabs = [];
 
-// listens for keyboard shortcut (CTRL + X) to toggle dark mode on/off for PDFs only
+// listens for keyboard shortcut (CTRL + SHIFT + 9) to toggle dark mode on/off for PDFs only
 chrome.commands.onCommand.addListener((command) => {
 
     if (command === 'run-dark-mode') {

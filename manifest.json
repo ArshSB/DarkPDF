@@ -32,8 +32,8 @@
   "commands": {
     "run-dark-mode": {
       "suggested_key": {
-        "default": "Alt+Shift+X",
-        "mac": "Command+Shift+X"
+        "default": "Ctrl+Shift+9",
+        "mac": "Command+Shift+9"
       },
       "description": "Apply dark mode to the current page"
     },
